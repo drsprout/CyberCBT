@@ -35,13 +35,10 @@ jobs:
       - name: Package HTML
         run: node scripts/package.js
 
-      - name: Fix package before publish
-        run: npm pkg fix
-
       - name: Publish to GitHub Packages
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.PKG_TOKEN }}
 
       - name: Upload CyberCBT.html as release asset
         uses: softprops/action-gh-release@v2
