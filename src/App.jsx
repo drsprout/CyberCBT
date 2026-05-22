@@ -1,6 +1,6 @@
 import { api } from './api';
 import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
-import * as XLSX from 'xlsx';
+import * as XLSX from '@e965/xlsx';
 import {
   ThemeProvider, createTheme, CssBaseline,
   AppBar, Toolbar, Typography, Button, IconButton,
