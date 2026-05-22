@@ -20,15 +20,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '24'
-          registry-url: 'https://npm.pkg.github.com'
-          scope: '@drsprout'
+          # Do NOT set registry-url here — we configure it manually below
+          # to avoid conflicts with the repo .npmrc
 
       - name: Install dependencies
         run: npm ci --ignore-scripts
 
       - name: Security audit
         run: npm audit --audit-level=high
-        continue-on-error: false
 
       - name: Build
         run: npm run build
@@ -36,8 +35,15 @@ jobs:
       - name: Package HTML
         run: node scripts/package.js
 
+      - name: Configure npm for GitHub Packages
+        run: |
+          echo "@drsprout:registry=https://npm.pkg.github.com" >> ~/.npmrc
+          echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}" >> ~/.npmrc
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Publish to GitHub Packages
-        run: npm publish --access public
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 

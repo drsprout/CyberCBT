@@ -34,8 +34,7 @@
     "url": "https://github.com/drsprout/CyberCBT.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "public"
+    "registry": "https://npm.pkg.github.com"
   },
   "engines": {
     "node": ">=18.0.0"
