@@ -1,0 +1,42 @@
+# ─── Line endings ──────────────────────────────────────────────────────────────
+# Normalise all text files to LF in the repo; Git Desktop handles checkout conversion
+* text=auto eol=lf
+
+# Force LF for source files (prevents CRLF issues on Windows)
+*.js    text eol=lf
+*.jsx   text eol=lf
+*.json  text eol=lf
+*.md    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.sh    text eol=lf
+*.npmrc text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+# ─── Binary files — do not diff or merge ──────────────────────────────────────
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.zip   binary
+*.db    binary
+
+# ─── Large generated files — treat as binary to prevent diffs ─────────────────
+# The built HTML is committed for convenience but should not be line-ending converted
+CyberCBT.html binary
+package-lock.json text eol=lf
+
+# ─── GitHub linguist overrides ─────────────────────────────────────────────────
+# Don't count the built HTML toward language stats
+CyberCBT.html linguist-generated=true linguist-detectable=false
+
+# Don't count vendor/lock files
+package-lock.json linguist-generated=true
