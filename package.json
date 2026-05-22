@@ -31,7 +31,7 @@
   "license": "OGL-UK-3.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/drsprout/CyberCBT.git"
+    "url": "git+https://github.com/drsprout/CyberCBT.git"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"

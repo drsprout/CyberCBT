@@ -13,7 +13,6 @@ jobs:
     permissions:
       contents: write
       packages: write
-      id-token: write
 
     steps:
       - uses: actions/checkout@v4
@@ -35,6 +34,9 @@ jobs:
 
       - name: Package HTML
         run: node scripts/package.js
+
+      - name: Fix package before publish
+        run: npm pkg fix
 
       - name: Publish to GitHub Packages
         run: npm publish
