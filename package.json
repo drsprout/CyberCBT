@@ -4,7 +4,7 @@
   "description": "NCSC-aligned staff cyber security computer-based training \u2014 self-hosted, single-file HTML app with SQL backend",
   "main": "server.js",
   "bin": {
-    "cybercbt": "./bin/cybercbt.js"
+    "cybercbt": "bin/cybercbt.js"
   },
   "scripts": {
     "start": "node server.js",

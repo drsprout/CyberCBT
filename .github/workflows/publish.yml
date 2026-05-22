@@ -22,6 +22,7 @@ jobs:
           node-version: '24'
           registry-url: 'https://npm.pkg.github.com'
           scope: '@drsprout'
+          always-auth: false
 
       - name: Install dependencies
         run: npm ci --ignore-scripts
@@ -34,6 +35,9 @@ jobs:
 
       - name: Package HTML
         run: node scripts/package.js
+
+      - name: Fix package metadata
+        run: npm pkg fix
 
       - name: Publish to GitHub Packages
         run: npm publish
